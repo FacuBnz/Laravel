@@ -1,0 +1,62 @@
+********************************************* RUTAS EN LARAVEL ************************************
+
+routes/api.php --> Se utiliza para definir las rutas de un api rest
+routes/web --> Se utiliza para definir las rutas de la web
+
+En base a los metodos http se construyen las rutas:
+
+GET: Conseguir datos
+POST: Guardar datos
+PUT: Actualizar recursos
+DELETE: Eliminar datos
+
+
+
+********************************************* VISTAS ************************************************
+
+resources/views --> Se definen las vistas de la WEB
+
+**ES MUY IMPORTANTE QUE LOS ARCHIVOS TENGAN LA EXTENSION *.blade.php YA QUE ES EL MOTOR DE RENDERIZACION DE LARAVEL
+
+
+
+************************************************* BLADE *********************************************
+
+
+{{-- Esto es un comentario en blade --}}
+
+{{-- bucles --}}
+<ul>
+    @foreach($peliculas as $value)
+        <li>{{ $value }}</li>
+    @endforeach
+</ul>
+
+{{-- condicionales --}}
+
+@if(isset($titulo))
+    <p>El titulo existe!!</p>
+@else
+    <p>El titulo no existe</p>
+@endif
+
+@include('includes.footer')//Para incluir otras vistas
+
+
+********************************************* CONSOLA ARTISAN ***************************************
+
+Mediante la consola entrar a la raiz del proyecto y ejecutar: php artisan *comando*.
+Utilizar *help* para buscar algun comando en especial.
+
+
+************************************   CONTROLADORES DE TIPO RESOURCE *******************************
+
+comando : php artisan make:controller *Nombre del controlador* --resource
+
+Genera un controlador con rutas y metodos ya establecidos
+
+********************************************* MIDDLEWARE ********************************************
+
+comando : php artisan make:middleware * Nombre del controlador *
+
+El middleware es un especie de filtro/funcionalidad que se utiliza antes de cargar la pagina deseada.
