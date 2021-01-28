@@ -10,6 +10,8 @@ use App\Http\Controllers\UsuarioController;
 /*Incluir la ubicacion de la clase a utilizar para el routing*/
 use App\Http\Controllers\PeliculaController;
 
+use App\Http\Controllers\FrutaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +43,20 @@ Route::get('/formulario', [PeliculaController::class, 'formulario'])->name('form
 Route::post('/recibir', [PeliculaController::class, 'recibir'])->name('recibir');
 
 Route::resource('usuario', UsuarioController::class);
+
+//Rutas fruta
+Route::prefix('frutas')->group(function (){
+    Route::get('/index', [FrutaController::class, 'index'])->name('frutas');
+    Route::get('/detail/{id}', [FrutaController::class, 'details'])->name('detail');
+
+    Route::get('/crear', [FrutaController::class, 'crear'])->name('crear');
+    Route::post('/save', [FrutaController::class, 'save'])->name('save');
+
+    Route::get('/eliminar/{id?}', [FrutaController::class, 'delete'])->name('eliminar');
+    Route::get('/editar/{id?}', [FrutaController::class, 'edit'])->name('editar');
+
+    Route::post('/actualizar', [FrutaController::class, 'update'])->name('update');
+});
 
 
 
